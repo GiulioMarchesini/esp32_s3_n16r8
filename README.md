@@ -1,43 +1,43 @@
 # ESP32-S3 Blink Example
 
-Questo progetto è un esempio di base per la scheda **ESP32-S3 DevKitC-1** utilizzando PlatformIO e il framework Arduino.
-Il codice fa lampeggiare il LED RGB integrato (NeoPixel) ciclando tra i colori Rosso, Verde e Blu.
+This project is a basic example for the **ESP32-S3 DevKitC-1** board using PlatformIO and the Arduino framework.
+The code blinks the integrated RGB LED (NeoPixel) cycling through Red, Green, and Blue colors.
 
 ## Hardware
 
-* **Scheda:** ESP32-S3 DevKitC-1
+* **Board:** ESP32-S3 DevKitC-1
 * **Flash:** 16MB (Quad I/O)
 * **PSRAM:** 8MB (Octal SPI / OPI)
-* **LED:** RGB integrato (indirizzabile tramite `neopixelWrite`)
+* **LED:** Integrated RGB (addressable via `neopixelWrite`)
 
-## Configurazione PlatformIO
+## PlatformIO Configuration
 
-Il file `platformio.ini` è configurato per:
+The `platformio.ini` file is configured to:
 
-* Utilizzare il **JTAG integrato** via USB per Upload e Debug (`esp-builtin`).
-* Abilitare la **USB CDC on Boot** per avere la Serial Monitor via USB nativa.
-* Configurare correttamente la memoria per moduli N16R8 (16MB Flash, 8MB PSRAM OPI).
+* Use the **integrated JTAG** via USB for Upload and Debug (`esp-builtin`).
+* Enable **USB CDC on Boot** to have the Serial Monitor via native USB.
+* Correctly configure memory for N16R8 modules (16MB Flash, 8MB PSRAM OPI).
 
-## Setup Driver per Debug (Importante)
+## Debug Driver Setup (Important)
 
-Per utilizzare il debug e l'upload tramite la porta USB nativa ("USB"), è necessario configurare correttamente i driver su Windows utilizzando **Zadig**:
+To use debug and upload via the native USB port ("USB"), you must correctly configure the drivers on Windows using **Zadig**:
 
-1. Collega la scheda tramite la porta USB nativa (non UART).
-2. Apri **Zadig**.
-3. Vai su **Options** -> **List All Devices**.
-4. Seleziona **"USB JTAG/serial debug unit (Interface 2)"**
-5. Seleziona il driver **WinUSB (v6.1.7600.16385)**.
-    * *Nota:* Versioni più recenti di WinUSB potrebbero dare problemi.
-6. Clicca su **Replace Driver** o **Reinstall WCID Driver**.
+1. Connect the board via the native USB port (not UART).
+2. Open **Zadig**.
+3. Go to **Options** -> **List All Devices**.
+4. Select **"USB JTAG/serial debug unit (Interface 2)"**
+5. Select the **WinUSB (v6.1.7600.16385)** driver.
+    * *Note:* Newer versions of WinUSB might cause issues.
+6. Click on **Replace Driver** or **Reinstall WCID Driver**.
 
-## Come usare
+## How to use
 
-1. **Build:** Esegui il task `Build` di PlatformIO.
-2. **Upload:** Collega la scheda alla porta USB e lancia `Upload`.
-3. **Monitor:** Apri il Serial Monitor a 115200 baud per vedere i messaggi di debug.
-4. **Debug:** Vai nella sezione "Run and Debug" di VS Code e avvia "PIO Debug".
+1. **Build:** Run the PlatformIO `Build` task.
+2. **Upload:** Connect the board to the USB port and run `Upload`.
+3. **Monitor:** Open the Serial Monitor at 115200 baud to see debug messages.
+4. **Debug:** Go to the "Run and Debug" section in VS Code and start "PIO Debug".
 
-## Struttura del codice
+## Code Structure
 
-* `src/main.cpp`: Contiene la logica principale. Utilizza `neopixelWrite()` per controllare il LED RGB senza bisogno di librerie esterne complesse.
-* `platformio.ini`: File di configurazione dell'ambiente, partizioni e flag di compilazione.
+* `src/main.cpp`: Contains the main logic. Uses `neopixelWrite()` to control the RGB LED without needing complex external libraries.
+* `platformio.ini`: Environment configuration file, partitions, and build flags.
