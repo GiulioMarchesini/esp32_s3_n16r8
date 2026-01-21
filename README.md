@@ -10,6 +10,8 @@ The code blinks the integrated RGB LED (NeoPixel) cycling through Red, Green, an
 * **PSRAM:** 8MB (Octal SPI / OPI)
 * **LED:** Integrated RGB (addressable via `neopixelWrite`)
 
+> USB-JTAG: PIN 19 and 20 are used by USB-JTAG by default. If they are reconfigured to operate as normal GPIOs, USB-JTAG functionality will be disabled. See the [ESP32-S3 Info](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peripherals/gpio.html#gpio-rtc-gpio) for more details.
+
 ## PlatformIO Configuration
 
 The `platformio.ini` file is configured to:
